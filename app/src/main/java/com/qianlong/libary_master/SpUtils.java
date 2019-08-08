@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class QLSpUtils {
+public class SpUtils {
 
-    private static final String TAG = QLSpUtils.class.getSimpleName();
+    private static final String TAG = SpUtils.class.getSimpleName();
 
     /**
      * 保存在手机里面的文件名
@@ -25,17 +25,17 @@ public class QLSpUtils {
 
     private static SharedPreferences saveInfo;
     private static Editor saveEditor;
-    private static volatile QLSpUtils spUtils;
+    private static volatile SpUtils spUtils;
     private Context context;
 
-    private QLSpUtils() {
+    private SpUtils() {
     }
 
-    public static QLSpUtils getInstance() {
+    public static SpUtils getInstance() {
         if (spUtils == null) {
-            synchronized (QLSpUtils.class) {
+            synchronized (SpUtils.class) {
                 if (spUtils == null) {
-                    spUtils = new QLSpUtils();
+                    spUtils = new SpUtils();
                 }
             }
         }
