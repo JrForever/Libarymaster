@@ -28,24 +28,21 @@ public class SpUtils {
     private static volatile SpUtils spUtils;
     private Context context;
 
-    private SpUtils() {
+    private SpUtils(Context context) {
+        this.context = context;
+        saveInfo = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        saveEditor = saveInfo.edit();
     }
 
-    public static SpUtils getInstance() {
+    public static SpUtils getInstance(Context context) {
         if (spUtils == null) {
             synchronized (SpUtils.class) {
                 if (spUtils == null) {
-                    spUtils = new SpUtils();
+                    spUtils = new SpUtils(context);
                 }
             }
         }
         return spUtils;
-    }
-
-    public void init(Context context) {
-        this.context = context;
-        saveInfo = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
-        saveEditor = saveInfo.edit();
     }
 
     public void putString(String key, String value) {
