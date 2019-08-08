@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--字体大小-->
+    <dimen name="font_normal">14sp</dimen>
+    <dimen name="L_Font">18sp</dimen>
+    <dimen name="M_Font">16sp</dimen>
+    <dimen name="S_Font">14sp</dimen>
+    <dimen name="XS_Font">12sp</dimen>
+    <dimen name="XXS_Font">10sp</dimen>
+
+    <dimen name="divider">1px</dimen>
+</resources>
