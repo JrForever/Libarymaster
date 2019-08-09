@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.qianlong.libary.app.LibApp;
 import com.qianlong.libary.utils.CommonDialog;
+import com.qianlong.libary.utils.MIniFile;
 import com.qianlong.libary.utils.SpUtils;
 import com.qianlong.libary.utils.ToastUtils;
 
@@ -42,5 +44,18 @@ public class MainActivity extends AppCompatActivity {
                 }).showDialog();
             }
         });
+
+        TextView tv1 = findViewById(R.id.tv1);
+        MIniFile mIniFile = LibApp.getInstance().getMIniFile("test.cfg");
+        String name = mIniFile.ReadString("USER", "name", "");
+        String sex = mIniFile.ReadString("USER", "sex", "");
+        int age = mIniFile.ReadInt("USER", "age", 0);
+        tv1.setText("读取assets文件信息：name="+ name +",sex="+sex +",age="+age);
+
+        mIniFile = LibApp.getInstance().getMIniFile("product.ini");
+        TextView tv2 = findViewById(R.id.tv2);
+        String address = mIniFile.ReadString("USER", "address", "");
+        String email = mIniFile.ReadString("USER", "email", "");
+        tv2.setText("读取ini文件信息：address="+address+",email="+email);
     }
 }
