@@ -1,11 +1,18 @@
 apply plugin: 'com.android.application'
 
+def config = rootProject.ext
 android {
-    compileSdkVersion 28
+    compileSdkVersion config.compileSdkVersion
     defaultConfig {
-        applicationId "com.qianlong.libary_master"
-        minSdkVersion 16
-        targetSdkVersion 28
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        buildConfigField("boolean","IS_TEST", isTest)
+        buildConfigField "int", "MODEL_TYPE", modelType //也可以去掉括号
+        if (isTest.toBoolean()) {
+            applicationId pkg_name_test
+        }else {
+            applicationId pkg_name_product
+        }
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -22,7 +29,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation config.dependencies.gson
+    implementation config.dependencies.okhttp
+    implementation config.dependencies.progressmanager
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
