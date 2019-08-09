@@ -1,4 +1,4 @@
-package com.qianlong.libary_master;
+package com.qianlong.libary;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,11 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.qianlong.libary_master.utils.CommonDialog;
-import com.qianlong.libary_master.utils.SpUtils;
-import com.qianlong.libary_master.utils.ToastUtils;
+import com.qianlong.libary.utils.CommonDialog;
+import com.qianlong.libary.utils.SpUtils;
+import com.qianlong.libary.utils.ToastUtils;
 
 public class MainActivity extends AppCompatActivity {
     private Context mContext;

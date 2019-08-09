@@ -1,4 +1,4 @@
-package com.qianlong.libary_master.utils;
+package com.qianlong.libary.utils;
 
 
 import android.app.Dialog;
@@ -13,7 +13,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.qianlong.libary_master.R;
+import com.qianlong.libary.R;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.qianlong.libary_master;
+package com.qianlong.libary;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

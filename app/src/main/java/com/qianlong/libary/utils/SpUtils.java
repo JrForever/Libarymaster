@@ -1,4 +1,4 @@
-package com.qianlong.libary_master.utils;
+package com.qianlong.libary.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
