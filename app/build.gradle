@@ -6,23 +6,72 @@ android {
     defaultConfig {
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
-        buildConfigField("boolean","IS_TEST", isTest)
         buildConfigField "int", "MODEL_TYPE", modelType //也可以去掉括号
-        if (isTest.toBoolean()) {
-            applicationId pkg_name_test
-        }else {
-            applicationId pkg_name_product
-        }
+        applicationId pkg_name_product
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        debug{
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+
+        test {
+            storeFile file(STORE_FILE)
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword STORE_PASSWORD
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+
+        relesemy {
+            storeFile file(STORE_FILE)
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword STORE_PASSWORD
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+
     buildTypes {
-        release {
+        //每一个构建类型(BuildingType)，都会产生对应的一个APK
+
+        debug {
+            debuggable true //启动debug的buildType配置
+        }
+
+        thetest {
+            buildConfigField("boolean","IS_TEST", "false")
+            applicationIdSuffix ".test"//applicationIdSuffix：应用程序标识后缀。
             minifyEnabled false
+            signingConfig signingConfigs.test
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            buildConfigField("boolean","IS_TEST", "true")
+            minifyEnabled false
+            signingConfig signingConfigs.relesemy
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def buildtype = variant.buildType.name
+            if (buildtype != "debug") {
+                variant.getPackageApplication().outputDirectory = new File('E:\\apks', 'libary')
+                outputFileName = "${buildtype}-${variant.applicationId}-${variant.versionName}.apk"
+            }
+        }
+    }
+
 }
 
 dependencies {
