@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="onclickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="retrofit2的使用"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/getdata"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="无参GET请求" />
+
+            <Button
+                android:id="@+id/hasParam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="有参GET请求" />
+
+            <Button
+                android:id="@+id/gsontrans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="有参GET请求，使用Gson转化器" />
+
+            <Button
+                android:id="@+id/usepath"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="有参GET请求，使用Path注解占位url问号前的参数" />
+
+            <Button
+                android:id="@+id/querymap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="有参GET请求，使用querymap传递多个参数" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="POST请求"/>
+
+            <Button
+                android:id="@+id/post"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="有参POST请求" />
+
+            <Button
+                android:id="@+id/bodypost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="有参@FieldMap的POST请求" />
+
+            <Button
+                android:id="@+id/bodyjson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="有参@Body的POST请求上传json" />
+
+            <Button
+                android:id="@+id/upload1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="RequestBody上传单张图片" />
+
+            <Button
+                android:id="@+id/upload2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="MultipartBody.Part上传单张图片" />
+
+            <Button
+                android:id="@+id/upload3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="MAP+RequestBody上传多张图片" />
+
+            <Button
+                android:id="@+id/upload4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="MAP+MultipartBody.Part上传多张图片" />
+
+            <Button
+                android:id="@+id/upload5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="图文混传1" />
+
+            <Button
+                android:id="@+id/upload6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="图文混传2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rxjava+retrofit"/>
+
+
+            <Button
+                android:id="@+id/rxjava"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{onclickListener}"
+                android:text="RxJava搞数据" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
