@@ -1,1 +1,1 @@
-include ':app', ':retrorx_module'
+include ':app', ':retrorx_module', ':dimension'

@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.View;
 
 import com.jian.retrorx.bean.BaseEntity;
@@ -118,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.e("jianyb", "getdata onFailure: " + t.getMessage());
             }
         });
+
     }
 
     /**
